@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Stock Market Data</h1>
+  </header>
+
+  <div class="info">
+    <p>Showing Apple stock market data from time period:<br> January 21. 2020 - January 20. 2021</p>
+  </div>
+
+  <div id="history" style="width: 1500px; height: 500px; margin: auto;"></div>
+
+  <div class="container">
+    <div class="problem">
+      <p>Questions you can find answers to:<br><br>
+        <strong>A</strong>. How many days was the longest bullish (upward) trend within a given date range?<br>
+        <strong>B</strong>. Which dates within a given date range had the highest trading volume and the most
+        significant stock price change within a day?<br>
+        <strong>C</strong>. Within a given date range, which dates had the best opening price compared to 5 days
+        simple moving average (SMA 5)?</p>
+      <label for="question">Select question:</label>
+      <select id="question" name="question">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+      <div class="date1">
+        <label for="start">Start date:</label>
+        <input type="date" id="start" name="date-start" value="2020-01-21" min="2020-01-21" max="2021-01-20">
+      </div>
+      <div class="date2">
+        <label for="end">End date:</label>
+        <input type="date" id="end" name="date-end" value="2021-01-20" min="2020-01-21" max="2021-01-20">
+      </div>
+      <div id="alert"></div>
+      <button id="submit" type="submit">Submit</button>
+    </div>
+    <div id="answer"></div>
+    <div id="answer-data"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
