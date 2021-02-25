@@ -15,6 +15,7 @@ CSV data format example:
 “Date, Close/Last, Volume, Open, High, Low  
 01/19/2021, $127.83, 90757330, $127.78, $128.71, $126.938”  
   
+  
 2. Scrooge wants answers to following questions A - C.  
 
 A. How many days was the longest bullish (upward) trend within a given date range?  
