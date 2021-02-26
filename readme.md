@@ -1,5 +1,7 @@
 # Stock Market Data
 
+![stockproject](stockproject.png)
+
 ## Properties
 - HTML/CSS/JavaScript, desktop version, not optimized for mobile  
 - using parsed csv stock data to calculate answers to questions given by user
