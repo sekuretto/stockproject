@@ -116,8 +116,10 @@ function parseDate (data) {
   return date;
 }
 
+
 // CREATE TABLE ELEMENT FOR DATA
 function createTable(arr, headers) {
+  answerdata.innerHTML = "";
   let table = document.createElement("TABLE");
   let header = table.createTHead();
   let headerrow = header.insertRow(0);
@@ -126,24 +128,13 @@ function createTable(arr, headers) {
     headercell.innerHTML = headers[index];
   });
   let body = table.createTBody();
-  arr.forEach((value, index) => {
-    let row = body.insertRow(index);
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    cell1.innerHTML = `${arr[index][0]}`;
-    cell2.innerHTML = `${arr[index][1]}`;
-    cell3.innerHTML = `${arr[index][2]}`;
-  });
-
-  // for (i = 0; i < arr.length; i++) {
-  //   let row = body.insertRow(i);
-  //   for (j = 0; j < headers.length; j++) {
-  //     let cell = row.insertCell(j);
-  //     cell.innerHTML = `${arr[i][headers[j]]}`;
-  //   }
-  // };
-
+  for (i = 0; i < arr.length; i++) {
+    let row = body.insertRow(i);
+    for (j = 0; j < arr[i].length; j++) {
+      let cell = row.insertCell(j);
+      cell.innerHTML = `${arr[i][j]}`;
+    }
+  };
   answerdata.appendChild(table);
 }
 
@@ -209,7 +200,8 @@ async function calc () {
           }
         }
       }
-      answer.innerHTML = `<p>Answer to question <strong>${q}</strong>:<br> Longest bullish trend lasted <strong>${total}</strong> days within ${d1} to ${d2}</p>`;
+      answer.innerHTML = `<hr><p>Answer to question <strong>${q}</strong>:<br> Longest bullish trend lasted <strong>${total}</strong> days within ${d1} to ${d2}</p>`;
+      answerdata.innerHTML = "";
       break;
 
     case "B":
@@ -231,7 +223,7 @@ async function calc () {
       sorted.sort((x,y) => {
         if(y[1] > x[1]) {
           return y[1] - x[1];
-        } else {
+        } else if (y[1] = x[1]) {
           return y[2] - x[2];
         }
       });
@@ -240,7 +232,7 @@ async function calc () {
       let highprice = pricechange.indexOf(Math.max(...pricechange));
       let highdate = date[highprice];
       
-      answer.innerHTML = `<p>Answer to question <strong>${q}</strong>:<br><br> Highest trading volume (<strong>${sorted[0][1]}</strong>) was on ${sorted[0][0]}.<br><br>
+      answer.innerHTML = `<hr><p>Answer to question <strong>${q}</strong>:<br><br> Highest trading volume (<strong>${sorted[0][1]}</strong>) was on ${sorted[0][0]}.<br><br>
       Most significant price change (<strong>$ ${pricechange[highprice]}</strong>) happened on ${highdate}.<br><br>
       Data within date range sorted by volume:`;
 
@@ -260,7 +252,7 @@ async function calc () {
       let percentages = [];
       for (i=0; i <= smaarr.length; i++) {
         let percent = (open[i+5] - smaarr[i])/(open[i+5] + smaarr[i]) * 100;
-        percentages.push(percent);
+        percentages.push(percent.toFixed(4));
       }
       
       //list of dates and price change percentages, ordered by price change percentages
@@ -273,12 +265,13 @@ async function calc () {
         return y[1] - x[1];
       });
       
-      answer.innerHTML = `<p>Answer to question <strong>${q}</strong>:<br><br> List of dates and price change percentages (opening price compared to SMA 5), sorted by %:`;
+      answer.innerHTML = `<hr><p>Answer to question <strong>${q}</strong>:<br><br> List of dates and price change percentages (opening price compared to SMA 5), sorted by %:`;
       let headers2 = ["Date", "Price Change (%)"];
       createTable(comparison, headers2);
       break;
   };
 };
+
 
 // EVENT LISTENERS
 date1.addEventListener('input', checkDate);
