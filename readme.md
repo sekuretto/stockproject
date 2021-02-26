@@ -7,7 +7,7 @@
 - using parsed csv stock data to calculate answers to questions given by user
 - getData(): using Fetch to get stock market data (csv) from file  
 - parseCSV(): parsing csv data with a function to remove dollar signs ($), async  
-- using AnyChart to create and show a chart, async  
+- using AnyChart to create and show all the data visually in a chart, async (shows only if data is loaded and parsed properly)  
 - UI shows selectable questions, select for choosing question, and inputs for selecting date range (start date and end date) 
 - checkDate(), function called by event listener, shows timed alert if user tries to input a weekend date, prevents calculation errors because data includes no weekend dates  
 - parseDate(): parse the dates given by user to match date format in csv so the dates can be compared to data  
