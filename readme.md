@@ -15,7 +15,7 @@
 - switch-function inside calc(): does actual calculations based on question (A, B or C)
 - A: compares close values within given date range (counter) to find the longest upward trend, returns to UI simply how many days the longest trend lasts
 - B: uses high and low values to calculate daily stock price changes, creates new array with date, volume and calculated pricechange and sorts it in descending order based on volume (or pricechange if volumes are the same), sorted array sent to createTable-function to create a table, returns to UI on which days was the highest volume and pricechange and createTable()-made table to show answer-data  
-- C: calculates SMA 5 using the average value of closing prices between days n-1 and n-5, calculates how many percentages (%) is the difference between the opening price of the day and the calculated SMA 5 price of the day, creates an array of dates and the precentages which is sent to createTable() to show answer-data in UI
+- C: calculates SMA 5 using the average value of closing prices between days n-1 and n-5, calculates how many percentages (%) is the difference between the opening price of the day and the calculated SMA 5 price of the day, creates an array of dates and the precentages (sorted by percentages) which is sent to createTable() to show answer-data in UI
 - createTable(): gets headers and data array from calc()/switch function, dynamically creates table with DOM to show the answers in answer-data div  
 - user can keep selecting new questions and date ranges, UI (answer or answer-data divs) is emptied when user makes new submit 
 
