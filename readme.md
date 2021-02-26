@@ -11,7 +11,7 @@
 - UI shows selectable questions, select for choosing question, and inputs for selecting date range (start date and end date) 
 - checkDate(), function called by event listener, shows timed alert if user tries to input a weekend date, prevents calculation errors because data includes no weekend dates  
 - parseDate(): parse the dates given by user to match date format in csv so the dates can be compared to data  
-- calc(), function called by event listener when submit is pressed, get user selections of question and dates, turns csv data into array, array.slice() to select portion of array based by given date range, each values from date range (date, volume, open, close, high, low) pushed into their own arrays for further calculations/comparisons 
+- calc(), also async, function called by event listener when submit is pressed, get user selections of question and dates, turns csv data into array, array.slice() to select portion of array based by given date range, each values from date range (date, volume, open, close, high, low) pushed into their own arrays for further calculations/comparisons 
 - switch-function inside calc(): does actual calculations based on question (A, B or C)
 - A: compares close values within given date range (counter) to find the longest upward trend, returns to UI simply how many days the longest trend lasts
 - B: uses high and low values to calculate daily stock price changes, creates new array with date, volume and calculated pricechange and sorts it in descending order based on volume (or pricechange if volumes are the same), sorted array sent to createTable-function to create a table, returns to UI on which days was the highest volume and pricechange and createTable()-made table to show answer-data  
