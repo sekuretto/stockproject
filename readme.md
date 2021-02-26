@@ -3,7 +3,7 @@
 ![stockproject](stockproject.png)
 
 ## Properties
-- HTML/CSS/JavaScript, desktop version, not optimized for mobile  
+- HTML/CSS/JavaScript, desktop version, MVP, not optimized for mobile  
 - using parsed csv stock data to calculate answers to questions given by user
 - getData(): using Fetch to get stock market data (csv) from file  
 - parseCSV(): parsing csv data with a function to remove dollar signs ($), async  
