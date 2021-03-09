@@ -62,3 +62,14 @@ C. Within a given date range, which dates had the best opening price compared to
 - Expected output: List of dates and price change percentages. The list is ordered by price change percentages.  
   
 You can return the source code for example via GitHub or email. Company will review the code, and we like clean, maintainable code that follows good coding conventions. You may ask if you have any questions, and have fun coding.  
+
+
+## Possible improvements to do
+
+- code structure (all in one file, long functions doing multiple things)  
+- variable/function scopes & dependencies  
+- fix namings (only english, more distinctive names)  
+- fix graph, no inline-css (now works only with inline css)  
+- convert to React?  
+- UI design/visuality  
+- mobile first  
